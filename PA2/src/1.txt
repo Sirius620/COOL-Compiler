@@ -1,0 +1,28 @@
+Example: • CLASS TYPEID '{' '}' ';'
+Shift derivation
+  class_list
+  ↳ class
+    ↳ non_empty_class
+      ↳ • CLASS TYPEID '{' feature_list '}' ';'
+                           ↳ ε
+Reduce derivation
+  class_list
+  ↳ class_list non_empty_class
+    ↳ class    ↳ CLASS TYPEID '{' feature_list '}' ';'
+      ↳ •                         ↳ ε
+
+
+      
+cool.y: warning: shift/reduce conflict on token CLASS [-Wcounterexamples]
+Example: • CLASS TYPEID INHERITS TYPEID '{' '}' ';'
+Shift derivation
+  class_list
+  ↳ class
+    ↳ non_empty_class
+      ↳ • CLASS TYPEID INHERITS TYPEID '{' feature_list '}' ';'
+                                           ↳ ε
+Reduce derivation
+  class_list
+  ↳ class_list non_empty_class
+    ↳ class    ↳ CLASS TYPEID INHERITS TYPEID '{' feature_list '}' ';'
+      ↳ •                                         ↳ ε
